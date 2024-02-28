@@ -13,7 +13,8 @@ class Settings(BaseSettings):
     DEBUG: bool = True
     API_URL: str = "/api/v1"
     OPEN_API_URL: str = "/openapi.json"
-
+    secretone: str = None
+    secrettwo: str = None
 
 @lru_cache()
 def _get_settings() -> Settings:
