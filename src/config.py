@@ -2,6 +2,7 @@
 from functools import lru_cache
 
 from pydantic_settings import BaseSettings
+import os
 
 
 class Settings(BaseSettings):
@@ -13,8 +14,8 @@ class Settings(BaseSettings):
     DEBUG: bool = True
     API_URL: str = "/api/v1"
     OPEN_API_URL: str = "/openapi.json"
-    secretone: str = None
-    secrettwo: str = None
+    secretone: str = os.getenv("secretone", 'none')
+    secrettwo: str = os.getenv("secrettwo", 'none')
 
 @lru_cache()
 def _get_settings() -> Settings:
